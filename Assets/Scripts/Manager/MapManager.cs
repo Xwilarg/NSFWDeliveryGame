@@ -43,7 +43,7 @@ namespace NsfwDelivery.Manager
                 var amICloseToTarget = _currentPath[0] == closestPoint;
                 var targetPoint = amICloseToTarget ? _currentPath[1] : _currentPath[0];
 
-                var meVector = targetPoint.transform.position - car.transform.position;
+                var meVector = car.transform.position - targetPoint.transform.position;
                 var pathVector = targetPoint.transform.position - closestPoint.transform.position;
 
                 if (Vector3.Dot(meVector, pathVector) < 0f) // We are between the 2 dots
