@@ -109,12 +109,11 @@ namespace NsfwDelivery.Manager
 
                     if (node == _target)
                     {
-                        var targetPoint = newPath[1];
+                        var meVector = car.transform.position - newPath[0].transform.position;
+                        var pathVector = newPath[1].transform.position - newPath[0].transform.position;
+                        var dot = Vector3.Dot(meVector, pathVector);
 
-                        var meVector = car.transform.position - targetPoint.transform.position;
-                        var pathVector = targetPoint.transform.position - newPath[0].transform.position;
-
-                        if (Vector3.Dot(meVector, pathVector) < 0f) // We are between the 2 dots
+                        if (dot > 0f && dot < pathVector.sqrMagnitude)
                         {
                             newPath.RemoveAt(0);
                             ShowPath(car.transform.position);
