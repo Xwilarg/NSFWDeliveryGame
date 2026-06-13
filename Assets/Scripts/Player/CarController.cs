@@ -36,7 +36,7 @@ namespace NsfwDelivery.Player
         private void FixedUpdate()
         {
             _rb.linearVelocity = transform.up * _forwardSpeed;
-            transform.Rotate(0f, 0f, -_horizontal * _forward * Time.fixedDeltaTime * _info.Torque);
+            transform.Rotate(0f, 0f, -_horizontal * _forwardSpeed * Time.fixedDeltaTime * _info.Torque);
         }
 
         public void OnMove(InputAction.CallbackContext value)
