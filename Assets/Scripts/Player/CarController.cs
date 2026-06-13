@@ -25,6 +25,7 @@ namespace NsfwDelivery.Player
         private void Start()
         {
             MapManager.Instance.ShowGPSPath(transform.position);
+            MapManager.Instance.StartGPS(this);
         }
 
         private void Update()
