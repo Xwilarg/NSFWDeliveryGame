@@ -39,10 +39,10 @@ namespace NsfwDelivery.Manager
             {
                 yield return new WaitForSeconds(.2f);
 
-                var closestPoint = GetClosestNode(car.transform.position);
+                /*var closestPoint = GetClosestNode(car.transform.position);
                 var amICloseToTarget = _currentPath[0] == closestPoint;
 
-                if (amICloseToTarget)
+                if (amICloseToTarget) // We passed a previous point
                 {
                     var targetPoint = _currentPath[1];
 
@@ -51,34 +51,33 @@ namespace NsfwDelivery.Manager
 
                     if (Vector3.Dot(meVector, pathVector) < 0f) // We are between the 2 dots
                     {
-                        if (amICloseToTarget) // We passed previous point
-                        {
-                            _currentPath.RemoveAt(0);
-                            ShowPath(car.transform.position);
-                        }
+                        _currentPath.RemoveAt(0);
+                        ShowPath(car.transform.position);
                     }
                 }
                 else
                 {
+                    /*var targetPoint = _currentPath[0];
 
-                }
-                /*
-                else
-                {
-                    if (!amICloseToTarget)
+                    var meVector = car.transform.position - targetPoint.transform.position;
+                    var pathVector = targetPoint.transform.position - closestPoint.transform.position;
+
+                    if (Vector3.Dot(meVector, pathVector) > 0f) // We are NOT between the 2 dots
                     {
                         ShowGPSPath(car.transform.position);
-                    }
-                }*/
+                    }*/
+                //}
+
+                ShowGPSPath(car);
             }
         }
 
         private Node GetClosestNode(Vector3 position) => _allNodes.OrderBy(x => Vector2.Distance(position, x.transform.position)).First();
 
-        public void ShowGPSPath(Vector3 position)
+        public void ShowGPSPath(CarController car)
         {
-            _currentPath = CalculatePath(GetClosestNode(position));
-            ShowPath(position);
+            _currentPath = CalculatePath(GetClosestNode(car.transform.position), car);
+            ShowPath(car.transform.position);
         }
 
         private void ShowPath(Vector3 startPos)
@@ -94,7 +93,7 @@ namespace NsfwDelivery.Manager
             _gps.SetPosition(0, playerPos);
         }
 
-        private List<Node> CalculatePath(Node start)
+        private List<Node> CalculatePath(Node start, CarController car)
         {
             var queue = new Queue<List<Node>>();
             queue.Enqueue(new List<Node> { start });
@@ -108,7 +107,21 @@ namespace NsfwDelivery.Manager
                 {
                     var newPath = new List<Node>(path) { node };
 
-                    if (node == _target) return newPath;
+                    if (node == _target)
+                    {
+                        var targetPoint = newPath[1];
+
+                        var meVector = car.transform.position - targetPoint.transform.position;
+                        var pathVector = targetPoint.transform.position - newPath[0].transform.position;
+
+                        if (Vector3.Dot(meVector, pathVector) < 0f) // We are between the 2 dots
+                        {
+                            newPath.RemoveAt(0);
+                            ShowPath(car.transform.position);
+                        }
+
+                        return newPath;
+                    }
 
                     queue.Enqueue(newPath);
                 }
