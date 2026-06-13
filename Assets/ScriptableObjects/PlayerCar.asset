@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e3d463e0f0578c4eb770cf9dc80dbcc, type: 3}
   m_Name: PlayerCar
   m_EditorClassIdentifier: Assembly-CSharp::NsfwDelivery.SO.CarInfo
-  Speed: 10
+  Speed: 7
   Acceleration: 10
   Torque: 15
