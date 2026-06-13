@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -10,6 +11,9 @@ namespace NsfwDelivery.Map
 
         public bool HasNode(Node node)
             => _nextNodes.Contains(node);
+
+        public IEnumerable<Node> GetNodes()
+            => _nextNodes;
 
         private void OnDrawGizmos()
         {
