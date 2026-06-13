@@ -41,24 +41,32 @@ namespace NsfwDelivery.Manager
 
                 var closestPoint = GetClosestNode(car.transform.position);
                 var amICloseToTarget = _currentPath[0] == closestPoint;
-                var targetPoint = amICloseToTarget ? _currentPath[1] : _currentPath[0];
 
-                var meVector = car.transform.position - targetPoint.transform.position;
-                var pathVector = targetPoint.transform.position - closestPoint.transform.position;
-
-                if (Vector3.Dot(meVector, pathVector) < 0f) // We are between the 2 dots
+                if (amICloseToTarget)
                 {
-                    if (amICloseToTarget) // We passed previous point
+                    var targetPoint = _currentPath[1];
+
+                    var meVector = car.transform.position - targetPoint.transform.position;
+                    var pathVector = targetPoint.transform.position - closestPoint.transform.position;
+
+                    if (Vector3.Dot(meVector, pathVector) < 0f) // We are between the 2 dots
                     {
-                        _currentPath.RemoveAt(0);
-                        ShowPath(car.transform.position);
+                        if (amICloseToTarget) // We passed previous point
+                        {
+                            _currentPath.RemoveAt(0);
+                            ShowPath(car.transform.position);
+                        }
                     }
                 }
-                /*else
+                else
+                {
+
+                }
+                /*
+                else
                 {
                     if (!amICloseToTarget)
                     {
-                        _currentPath.Insert(0, closestPoint);
                         ShowGPSPath(car.transform.position);
                     }
                 }*/
