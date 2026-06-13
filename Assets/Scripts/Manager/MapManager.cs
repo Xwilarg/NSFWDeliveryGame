@@ -12,20 +12,56 @@ namespace NsfwDelivery.Manager
         [SerializeField]
         private Node _target;
 
-        public bool CalculatePath(List<Node> path)
+        [SerializeField]
+        private LineRenderer _gps;
+
+        private List<Node> _currentPath = new List<Node>();
+
+        private void Awake()
         {
-            var last = path.Last();
-            foreach (var node in last.GetNodes().Where(x => !path.Contains(x)))
+            Instance = this;
+        }
+
+        public void ShowGPSPath(Vector3 position)
+        {
+            _currentPath = CalculatePath(Object.FindObjectsByType<Node>(FindObjectsSortMode.None).OrderBy(x => Vector2.Distance(position, x.transform.position)).First());
+            ShowPath(position);
+        }
+
+        private void ShowPath(Vector3 startPos)
+        {
+            _gps.positionCount = _currentPath.Count + 1;
+            List<Vector3> positions = new() { startPos };
+            positions.AddRange(_currentPath.Select(x => x.transform.position));
+            _gps.SetPositions(positions.ToArray());
+        }
+
+        public void UpdatePlayerPath(Vector3 playerPos)
+        {
+            _gps.SetPosition(0, playerPos);
+        }
+
+        private List<Node> CalculatePath(Node start)
+        {
+            var queue = new Queue<List<Node>>();
+            queue.Enqueue(new List<Node> { start });
+
+            while (queue.Count > 0)
             {
-                var newPath = new List<Node>(path);
-                newPath.Add(node);
+                var path = queue.Dequeue();
+                var last = path.Last();
 
-                if (node == _target) return true;
+                foreach (var node in last.GetNodes().Where(x => !path.Contains(x)))
+                {
+                    var newPath = new List<Node>(path) { node };
 
-                if (CalculatePath(newPath)) return true;
+                    if (node == _target) return newPath;
+
+                    queue.Enqueue(newPath);
+                }
             }
 
-            return false;
+            return null;
         }
     }
 }

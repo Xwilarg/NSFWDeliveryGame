@@ -1,3 +1,4 @@
+using NsfwDelivery.Manager;
 using NsfwDelivery.SO;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -21,6 +22,11 @@ namespace NsfwDelivery.Player
             _rb = GetComponent<Rigidbody2D>();
         }
 
+        private void Start()
+        {
+            MapManager.Instance.ShowGPSPath(transform.position);
+        }
+
         private void Update()
         {
             var acceleration = Time.deltaTime * _info.Acceleration;
@@ -35,8 +41,14 @@ namespace NsfwDelivery.Player
 
         private void FixedUpdate()
         {
-            _rb.linearVelocity = transform.up * _forwardSpeed;
+            var vel = transform.up * _forwardSpeed;
+            _rb.linearVelocity = vel;
             transform.Rotate(0f, 0f, -_horizontal * _forwardSpeed * Time.fixedDeltaTime * _info.Torque);
+
+            if (vel.magnitude > 0f)
+            {
+                MapManager.Instance.UpdatePlayerPath(transform.position);
+            }
         }
 
         public void OnMove(InputAction.CallbackContext value)
