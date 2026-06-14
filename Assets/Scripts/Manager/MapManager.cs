@@ -11,7 +11,6 @@ namespace NsfwDelivery.Manager
     {
         public static MapManager Instance { private set; get; }
 
-        [SerializeField]
         private Node _target;
 
         [SerializeField]
@@ -28,8 +27,18 @@ namespace NsfwDelivery.Manager
             _allNodes = Object.FindObjectsByType<Node>(FindObjectsSortMode.None);
         }
 
+        private void SetTarget(CarController car)
+        {
+            var possibleTargets = _allNodes.Where(x => x.IsObjective && x != _target).ToArray();
+            _target = possibleTargets[Random.Range(0, possibleTargets.Length)];
+
+            ShowGPSPath(car);
+        }
+
         public void StartGPS(CarController car)
         {
+            SetTarget(car);
+            ShowGPSPath(car);
             StartCoroutine(UpdateGPS(car));
         }
 
@@ -68,7 +77,17 @@ namespace NsfwDelivery.Manager
                     }*/
                 //}
 
-                ShowGPSPath(car);
+                if (_currentPath.Count == 1)
+                {
+                    if (Vector2.Distance(car.transform.position, _currentPath.First().transform.position) < 1f)
+                    {
+                        SetTarget(car);
+                    }
+                }
+                else
+                {
+                    ShowGPSPath(car);
+                }
             }
         }
 
@@ -82,6 +101,8 @@ namespace NsfwDelivery.Manager
 
         private void ShowPath(Vector3 startPos)
         {
+            if (_currentPath == null) return;
+
             _gps.positionCount = _currentPath.Count + 1;
             List<Vector3> positions = new() { startPos };
             positions.AddRange(_currentPath.Select(x => x.transform.position));
@@ -109,14 +130,17 @@ namespace NsfwDelivery.Manager
 
                     if (node == _target)
                     {
-                        var meVector = car.transform.position - newPath[0].transform.position;
-                        var pathVector = newPath[1].transform.position - newPath[0].transform.position;
-                        var dot = Vector3.Dot(meVector, pathVector);
-
-                        if (dot > 0f && dot < pathVector.sqrMagnitude)
+                        if (newPath.Count > 1)
                         {
-                            newPath.RemoveAt(0);
-                            ShowPath(car.transform.position);
+                            var meVector = car.transform.position - newPath[0].transform.position;
+                            var pathVector = newPath[1].transform.position - newPath[0].transform.position;
+                            var dot = Vector3.Dot(meVector, pathVector);
+
+                            if (dot > 0f && dot < pathVector.sqrMagnitude)
+                            {
+                                newPath.RemoveAt(0);
+                                ShowPath(car.transform.position);
+                            }
                         }
 
                         return newPath;

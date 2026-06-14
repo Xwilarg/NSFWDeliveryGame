@@ -9,6 +9,10 @@ namespace NsfwDelivery.Map
         [SerializeField]
         private Node[] _nextNodes;
 
+        [SerializeField]
+        private bool _isObjective;
+        public bool IsObjective => _isObjective;
+
         public bool HasNode(Node node)
             => _nextNodes.Contains(node);
 
@@ -30,6 +34,12 @@ namespace NsfwDelivery.Map
                 else continue;
 
                 Gizmos.DrawLine(transform.position, n.transform.position);
+            }
+
+            if (IsObjective)
+            {
+                Gizmos.color = Color.yellow;
+                Gizmos.DrawWireSphere(transform.position, 1f);
             }
         }
     }
