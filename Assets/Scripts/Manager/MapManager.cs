@@ -83,6 +83,10 @@ namespace NsfwDelivery.Manager
                     {
                         SetTarget(car);
                     }
+                    else
+                    {
+                        ShowGPSPath(car);
+                    }
                 }
                 else
                 {
@@ -136,7 +140,7 @@ namespace NsfwDelivery.Manager
                             var pathVector = newPath[1].transform.position - newPath[0].transform.position;
                             var dot = Vector3.Dot(meVector, pathVector);
 
-                            if (dot > 0f && dot < pathVector.sqrMagnitude)
+                            if (dot > 0f && dot < pathVector.sqrMagnitude && Physics2D.Linecast(car.transform.position, newPath[1].transform.position, LayerMask.GetMask("Wall")).collider == null)
                             {
                                 newPath.RemoveAt(0);
                                 ShowPath(car.transform.position);
