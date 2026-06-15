@@ -25,6 +25,7 @@ namespace NsfwDelivery.Player
         private void Start()
         {
             MapManager.Instance.StartGPS(this);
+            MapManager.Instance.SetTarget(this, ObjectiveManager.Instance.OfficeNode);
         }
 
         private void Update()

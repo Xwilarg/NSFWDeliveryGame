@@ -18,7 +18,7 @@ namespace NsfwDelivery.Manager
 
         private IEnumerable<Node> _allNodes;
 
-        private List<Node> _currentPath = new List<Node>();
+        private List<Node> _currentPath = null;
 
         private void Awake()
         {
@@ -26,19 +26,21 @@ namespace NsfwDelivery.Manager
 
             _allNodes = Object.FindObjectsByType<Node>(FindObjectsSortMode.None);
         }
-
-        private void SetTarget(CarController car)
+        public void SetTarget(CarController car, Node node)
         {
-            var possibleTargets = _allNodes.Where(x => x.IsObjective && x != _target).ToArray();
-            _target = possibleTargets[Random.Range(0, possibleTargets.Length)];
+            _target = node;
 
             ShowGPSPath(car);
         }
 
+        private void SetRandomTarget(CarController car)
+        {
+            var possibleTargets = _allNodes.Where(x => x.IsObjective && x != _target).ToArray();
+            SetTarget(car, possibleTargets[Random.Range(0, possibleTargets.Length)]);
+        }
+
         public void StartGPS(CarController car)
         {
-            SetTarget(car);
-            ShowGPSPath(car);
             StartCoroutine(UpdateGPS(car));
         }
 
@@ -78,14 +80,12 @@ namespace NsfwDelivery.Manager
                 //}
 
                 if (_currentPath == null)
-                {
-                    SetTarget(car);
-                }
+                { }
                 else if (_currentPath.Count == 1)
                 {
                     if (Vector2.Distance(car.transform.position, _currentPath.First().transform.position) < 1f)
                     {
-                        SetTarget(car);
+                        SetRandomTarget(car);
                     }
                     else
                     {
@@ -119,11 +119,13 @@ namespace NsfwDelivery.Manager
 
         public void UpdatePlayerPath(Vector3 playerPos)
         {
-            _gps.SetPosition(0, playerPos);
+            if (_gps.positionCount > 0) _gps.SetPosition(0, playerPos);
         }
 
         private List<Node> CalculatePath(Node start, CarController car)
         {
+            if (start == _target) return new List<Node>() { start };
+
             var queue = new Queue<List<Node>>();
             queue.Enqueue(new List<Node> { start });
 

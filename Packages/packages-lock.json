@@ -311,6 +311,13 @@
       },
       "url": "https://packages.unity.com"
     },
+    "eu.zirk.sketch.visualnovel": {
+      "version": "https://github.com/Xwilarg/Sketch.git?path=/eu.zirk.sketch.visualnovel",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "c7a5658783f327ce8dc98620979556cd572a332c"
+    },
     "com.unity.modules.accessibility": {
       "version": "1.0.0",
       "depth": 0,
