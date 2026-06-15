@@ -44,7 +44,9 @@ namespace NsfwDelivery.Player
         {
             var vel = transform.up * _forwardSpeed;
             _rb.linearVelocity = vel;
-            transform.Rotate(0f, 0f, -_horizontal * _forwardSpeed * Time.fixedDeltaTime * _info.Torque);
+            var torqueForce = -_horizontal * _forwardSpeed * Time.fixedDeltaTime * _info.Torque;
+            torqueForce *= _info.TorqueCurve.Evaluate(_forwardSpeed / _info.Speed);
+            transform.Rotate(0f, 0f, torqueForce);
 
             if (vel.magnitude > 0f)
             {

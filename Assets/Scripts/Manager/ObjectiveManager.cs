@@ -1,4 +1,6 @@
 ﻿using NsfwDelivery.Map;
+using Sketch.VN;
+using Sketch.VN.InkleInk;
 using TMPro;
 using UnityEngine;
 
@@ -14,6 +16,9 @@ namespace NsfwDelivery.Manager
         [SerializeField]
         private Node _officeNode;
         public Node OfficeNode => _officeNode;
+
+        [SerializeField]
+        private TextAsset _introStory, _firstPosteVisitStory;
 
         public GameState GameState
         {
@@ -35,6 +40,11 @@ namespace NsfwDelivery.Manager
         {
             Instance = this;
             GameState = GameState.GoToGarage;
+        }
+
+        private void Start()
+        {
+            VNManager.Instance.ShowStory(new InkStory(_introStory));
         }
     }
 

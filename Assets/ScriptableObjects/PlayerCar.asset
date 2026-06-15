@@ -14,4 +14,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NsfwDelivery.SO.CarInfo
   Speed: 7
   Acceleration: 10
-  Torque: 20
+  Torque: 35
+  TorqueCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -0.39715347
+      outSlope: -0.39715347
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.8502502
+      value: 0.6623202
+      inSlope: -1.2364117
+      outSlope: -1.2364117
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.06538077
+    - serializedVersion: 3
+      time: 1
+      value: 0.5
+      inSlope: -1.0839425
+      outSlope: -1.0839425
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

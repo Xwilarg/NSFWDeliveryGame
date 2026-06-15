@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.inkle.ink-unity-integration": {
+      "version": "https://github.com/inkle/ink-unity-integration.git#upm",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "770b372042728fc9df9d26ae19287cf6145d47a5"
+    },
     "com.unity.2d.animation": {
       "version": "13.0.4",
       "depth": 0,
@@ -316,6 +323,16 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
+      "hash": "c7a5658783f327ce8dc98620979556cd572a332c"
+    },
+    "eu.zirk.sketch.visualnovel.inkleink": {
+      "version": "https://github.com/Xwilarg/Sketch.git?path=/eu.zirk.sketch.visualnovel.inkleink",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.inkle.ink-unity-integration": "1.2.2",
+        "eu.zirk.sketch.visualnovel": "1.0.0"
+      },
       "hash": "c7a5658783f327ce8dc98620979556cd572a332c"
     },
     "com.unity.modules.accessibility": {
