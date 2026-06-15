@@ -38,6 +38,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 236953747
+    locked: 0
   - name: GPS
     uniqueID: 1348939389
     locked: 0
