@@ -77,7 +77,11 @@ namespace NsfwDelivery.Manager
                     }*/
                 //}
 
-                if (_currentPath.Count == 1)
+                if (_currentPath == null)
+                {
+                    SetTarget(car);
+                }
+                else if (_currentPath.Count == 1)
                 {
                     if (Vector2.Distance(car.transform.position, _currentPath.First().transform.position) < 1f)
                     {

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NsfwDelivery.SO.CarInfo
   Speed: 7
   Acceleration: 10
-  Torque: 15
+  Torque: 20
