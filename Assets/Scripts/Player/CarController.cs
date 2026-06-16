@@ -1,5 +1,6 @@
 using NsfwDelivery.Manager;
 using NsfwDelivery.SO;
+using Sketch.VN;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -42,6 +43,12 @@ namespace NsfwDelivery.Player
 
         private void FixedUpdate()
         {
+            if (VNManager.Instance.IsStoryOngoing)
+            {
+                _rb.linearVelocity = Vector2.zero;
+                return;
+            }
+
             var vel = transform.up * _forwardSpeed;
             _rb.linearVelocity = vel;
             var torqueForce = -_horizontal * _forwardSpeed * Time.fixedDeltaTime * _info.Torque;

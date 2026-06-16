@@ -1,4 +1,5 @@
 ﻿using NsfwDelivery.Map;
+using Sketch.Common;
 using Sketch.VN;
 using Sketch.VN.InkleInk;
 using TMPro;
@@ -20,10 +21,17 @@ namespace NsfwDelivery.Manager
         [SerializeField]
         private TextAsset _introStory, _firstPosteVisitStory;
 
+
+        private Timer _missionTimer = new();
+
         public GameState GameState
         {
             set
             {
+                if (value == GameState.DeliverPackage && _gameState == GameState.GoToGarage)
+                {
+                    _missionTimer.Start(120f);
+                }
                 _gameState = value;
                 _objectiveText.text = value switch
                 {
@@ -46,11 +54,28 @@ namespace NsfwDelivery.Manager
         {
             VNManager.Instance.ShowStory(new InkStory(_introStory));
         }
+
+        private void Update()
+        {
+            if (GameState == GameState.DeliverPackage)
+            {
+                if (_missionTimer.IsActive)
+                {
+                    _missionTimer.Update(Time.deltaTime);
+                    _objectiveText.text = $"Deliver your packages... {120 - Mathf.FloorToInt(_missionTimer.TimerClamped01 * 120f)}";
+                }
+                else
+                {
+                    _objectiveText.text = $"Deliver your packages";
+                }
+            }
+        }
     }
 
     public enum GameState
     {
         GoToGarage,
-        DeliverPackage
+        DeliverPackage,
+        FinishDelivery
     }
 }

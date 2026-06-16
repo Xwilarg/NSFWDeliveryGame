@@ -20,6 +20,7 @@
     "com.unity.timeline": "1.8.12",
     "com.unity.ugui": "2.0.0",
     "com.unity.visualscripting": "1.9.11",
+    "eu.zirk.sketch.common": "https://github.com/Xwilarg/Sketch.git?path=/eu.zirk.sketch.common",
     "eu.zirk.sketch.visualnovel": "https://github.com/Xwilarg/Sketch.git?path=/eu.zirk.sketch.visualnovel",
     "eu.zirk.sketch.visualnovel.inkleink": "https://github.com/Xwilarg/Sketch.git?path=/eu.zirk.sketch.visualnovel.inkleink",
     "com.unity.modules.accessibility": "1.0.0",
