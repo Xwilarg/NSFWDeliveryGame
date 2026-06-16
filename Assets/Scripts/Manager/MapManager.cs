@@ -100,11 +100,17 @@ namespace NsfwDelivery.Manager
             }
         }
 
-        private Node GetClosestNode(Vector3 position) => _allNodes.OrderBy(x => Vector2.Distance(position, x.transform.position)).First();
+        private Node GetClosestNode(Vector3 position)
+            => _allNodes
+            .OrderBy(x => Vector2.Distance(position, x.transform.position))
+            .FirstOrDefault(x => Physics2D.Linecast(position, x.transform.position, LayerMask.GetMask("Wall")).collider == null);
 
         public void ShowGPSPath(CarController car)
         {
-            _currentPath = CalculatePath(GetClosestNode(car.transform.position), car);
+            var closest = GetClosestNode(car.transform.position);
+            if (closest == null) return;
+
+            _currentPath = CalculatePath(closest, car);
             ShowPath(car.transform.position);
         }
 
