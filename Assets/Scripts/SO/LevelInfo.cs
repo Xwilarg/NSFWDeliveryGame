@@ -7,5 +7,7 @@ namespace NsfwDelivery.SO
     {
         public TextAsset Story;
         public int PackageCount;
+
+        public bool CanUseBoost;
     }
 }

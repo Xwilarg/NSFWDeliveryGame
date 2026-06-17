@@ -1,4 +1,5 @@
 ﻿using NsfwDelivery.Map;
+using NsfwDelivery.Player;
 using NsfwDelivery.SO;
 using Sketch.Common;
 using Sketch.VN;
@@ -27,6 +28,9 @@ namespace NsfwDelivery.Manager
 
         [SerializeField]
         private TextAsset _intro;
+
+        [SerializeField]
+        private RectTransform _boostJauge;
 
         private int _packagesLeft;
 
@@ -61,6 +65,9 @@ namespace NsfwDelivery.Manager
             Instance = this;
             GameState = GameState.GoToGarage;
             _timerText.gameObject.SetActive(false);
+            _boostJauge.gameObject.SetActive(false);
+
+            _missionTimer.OnDone.AddListener(() => { Loose(GameObject.FindFirstObjectByType<CarController>()); });
         }
 
         private void Start()
@@ -75,15 +82,16 @@ namespace NsfwDelivery.Manager
             _objectiveText.text = $"Deliver your packages... {_packagesLeft}";
             _timerText.gameObject.SetActive(true);
             ShowTimer();
+            _boostJauge.gameObject.SetActive(CurrentLevel.CanUseBoost);
         }
 
-        public void DeliverPackage()
+        public void DeliverPackage(CarController car)
         {
             _packagesLeft--;
             _objectiveText.text = $"Deliver your packages... {_packagesLeft}";
             if (_packagesLeft == 0)
             {
-                Win();
+                Win(car);
             }
         }
 
@@ -101,23 +109,23 @@ namespace NsfwDelivery.Manager
                 {
                     _missionTimer.Update(Time.deltaTime);
                     ShowTimer();
-
-                    if (!_missionTimer.IsActive)
-                    {
-                        Loose();
-                    }
                 }
             }
         }
 
-        private void Loose()
+        private void Loose(CarController car)
         {
-
+            GameState = GameState.GoToGarage;
+            MapManager.Instance.SetTarget(car, OfficeNode);
+            _timerText.gameObject.SetActive(false);
         }
 
-        private void Win()
+        private void Win(CarController car)
         {
-
+            _index++;
+            GameState = GameState.GoToGarage;
+            MapManager.Instance.SetTarget(car, OfficeNode);
+            _timerText.gameObject.SetActive(false);
         }
     }
 

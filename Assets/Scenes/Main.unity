@@ -7037,7 +7037,7 @@ GameObject:
   - component: {fileID: 1078211503}
   - component: {fileID: 1078211502}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Jauge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11140,6 +11140,7 @@ MonoBehaviour:
   _levels:
   - {fileID: 11400000, guid: bc197d33d6e2bff46876a74d8254140a, type: 2}
   _intro: {fileID: 4900000, guid: b9e6125b0f0e507488b909adcb92699d, type: 3}
+  _boostJauge: {fileID: 1078211501}
 --- !u!114 &1766446687
 MonoBehaviour:
   m_ObjectHideFlags: 0
