@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: DeliveryGirl
   m_EditorClassIdentifier: xwilarg.eu.zirk.sketch.visualnovel::Sketch.VN.VNCharacterInfo
   Name: DeliveryGirl
-  DisplayName: Delivery Girl
+  DisplayName: Valentine
   Image: {fileID: 21300000, guid: f17c55459ed20be40bb05392e6047497, type: 3}
   Overlays: []

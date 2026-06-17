@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: MarketingGuy
   m_EditorClassIdentifier: xwilarg.eu.zirk.sketch.visualnovel::Sketch.VN.VNCharacterInfo
   Name: MarketingGuy
-  DisplayName: Marketing Guy
+  DisplayName: Valerie
   Image: {fileID: 21300000, guid: 217c711c2a3238f44a6ada34646c1212, type: 3}
   Overlays: []
