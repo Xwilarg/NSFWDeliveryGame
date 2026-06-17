@@ -1,4 +1,5 @@
 ﻿using NsfwDelivery.Map;
+using NsfwDelivery.SO;
 using Sketch.Common;
 using Sketch.VN;
 using Sketch.VN.InkleInk;
@@ -19,10 +20,12 @@ namespace NsfwDelivery.Manager
         public Node OfficeNode => _officeNode;
 
         [SerializeField]
-        private TextAsset _introStory, _firstPosteVisitStory;
-
+        private LevelInfo[] _levels;
 
         private Timer _missionTimer = new();
+        private int _index;
+
+        public LevelInfo CurrentLevel => _levels[_index];
 
         public GameState GameState
         {
@@ -52,7 +55,7 @@ namespace NsfwDelivery.Manager
 
         private void Start()
         {
-            VNManager.Instance.ShowStory(new InkStory(_introStory));
+            VNManager.Instance.ShowStory(new InkStory(CurrentLevel.Story));
         }
 
         private void Update()
