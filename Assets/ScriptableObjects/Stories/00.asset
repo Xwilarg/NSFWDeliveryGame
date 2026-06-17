@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4d10ebbdaa970a42bea8190d3a3d81c, type: 3}
   m_Name: 00
   m_EditorClassIdentifier: Assembly-CSharp::NsfwDelivery.SO.LevelInfo
-  Story: {fileID: 0}
+  Story: {fileID: 4900000, guid: 499c561eb52cd314d8d3a8df548ddbe5, type: 3}
+  PackageCount: 5

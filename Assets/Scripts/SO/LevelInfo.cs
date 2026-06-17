@@ -6,5 +6,6 @@ namespace NsfwDelivery.SO
     public class LevelInfo : ScriptableObject
     {
         public TextAsset Story;
+        public int PackageCount;
     }
 }
