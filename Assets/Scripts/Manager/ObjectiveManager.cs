@@ -6,6 +6,7 @@ using Sketch.VN;
 using Sketch.VN.InkleInk;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace NsfwDelivery.Manager
 {
@@ -35,9 +36,17 @@ namespace NsfwDelivery.Manager
         private int _packagesLeft;
 
         private Timer _missionTimer = new();
+        private Timer _recoverBoostTimer = new();
         private int _index;
 
         public LevelInfo CurrentLevel => _levels[_index];
+
+        public int _goodDeliveries = 0;
+
+        private float _boost = 1f;
+        private bool _isPressingBoostKey;
+        private bool _isRecovering;
+        public bool IsUsingBoost { set; get; }
 
         public GameState GameState
         {
@@ -68,6 +77,11 @@ namespace NsfwDelivery.Manager
             _boostJauge.gameObject.SetActive(false);
 
             _missionTimer.OnDone.AddListener(() => { Loose(GameObject.FindFirstObjectByType<CarController>()); });
+
+            _recoverBoostTimer.OnDone.AddListener(() =>
+            {
+                _isRecovering = true;
+            });
         }
 
         private void Start()
@@ -103,29 +117,71 @@ namespace NsfwDelivery.Manager
 
         private void Update()
         {
-            if (GameState == GameState.DeliverPackage && !VNManager.Instance.IsStoryOngoing)
+            if (!VNManager.Instance.IsStoryOngoing)
             {
-                if (_missionTimer.IsActive)
+                if (GameState == GameState.DeliverPackage)
                 {
-                    _missionTimer.Update(Time.deltaTime);
-                    ShowTimer();
+                    if (_missionTimer.IsActive)
+                    {
+                        _missionTimer.Update(Time.deltaTime);
+                        ShowTimer();
+                    }
                 }
+
+                IsUsingBoost = _isPressingBoostKey && _boost > 0f;
+                if (IsUsingBoost && _boost > 0f)
+                {
+                    _boost = Mathf.Clamp01(_boost - Time.deltaTime);
+                    _isRecovering = false;
+                }
+                else if (_isRecovering)
+                {
+                    _boost = Mathf.Clamp01(_boost + Time.deltaTime / 3f);
+                }
+                else if (_recoverBoostTimer.IsActive)
+                {
+                    _recoverBoostTimer.Update(Time.deltaTime);
+                }
+                _boostJauge.localScale = new Vector3(1f, _boost, 1f);
             }
         }
 
         private void Loose(CarController car)
         {
-            GameState = GameState.GoToGarage;
-            MapManager.Instance.SetTarget(car, OfficeNode);
             _timerText.gameObject.SetActive(false);
+
+            GoToGarage(car);
         }
 
         private void Win(CarController car)
         {
-            _index++;
-            GameState = GameState.GoToGarage;
-            MapManager.Instance.SetTarget(car, OfficeNode);
             _timerText.gameObject.SetActive(false);
+            _goodDeliveries++;
+
+            GoToGarage(car);
+        }
+
+        private void GoToGarage(CarController car)
+        {
+            if (_index < _levels.Length - 1)
+            {
+                _index++;
+                GameState = GameState.GoToGarage;
+                MapManager.Instance.SetTarget(car, OfficeNode);
+            }
+        }
+
+        public void OnUseBoost(InputAction.CallbackContext value)
+        {
+            if (value.phase == InputActionPhase.Started && CurrentLevel.CanUseBoost)
+            {
+                _isPressingBoostKey = true;
+            }
+            else if (value.phase == InputActionPhase.Canceled)
+            {
+                _isPressingBoostKey = false;
+                _recoverBoostTimer.Start(2f);
+            }
         }
     }
 

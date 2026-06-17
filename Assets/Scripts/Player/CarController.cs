@@ -49,7 +49,7 @@ namespace NsfwDelivery.Player
                 return;
             }
 
-            var vel = transform.up * _forwardSpeed;
+            var vel = transform.up * _forwardSpeed * (ObjectiveManager.Instance.IsUsingBoost ? 3f : 1f);
             _rb.linearVelocity = vel;
             var torqueForce = -_horizontal * _forwardSpeed * Time.fixedDeltaTime * _info.Torque;
             torqueForce *= _info.TorqueCurve.Evaluate(_forwardSpeed / _info.Speed);
