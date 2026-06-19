@@ -18,8 +18,9 @@ namespace NsfwDelivery.Manager
         private TMP_Text _objectiveText;
 
         [SerializeField]
-        private Node _officeNode;
+        private Node _officeNode, _homeNode;
         public Node OfficeNode => _officeNode;
+        public Node HomeNode => _homeNode;
 
         [SerializeField]
         private TMP_Text _timerText;
@@ -37,7 +38,7 @@ namespace NsfwDelivery.Manager
 
         private Timer _missionTimer = new();
         private Timer _recoverBoostTimer = new();
-        private int _index;
+        private int _index = -1;
 
         public LevelInfo CurrentLevel => _levels[_index];
 
@@ -66,7 +67,7 @@ namespace NsfwDelivery.Manager
                 {
                     GameState.GoToHouse => "Go home",
                     GameState.GoToGarage => "Go to the post office",
-                    GameState.DeliverPackage => "Deliver your packages",
+                    GameState.DeliverPackage => $"Deliver your packages... {_packagesLeft}",
                     _ => string.Empty
                 };
             }
@@ -101,9 +102,9 @@ namespace NsfwDelivery.Manager
 
         private void InitDay()
         {
+            _index++;
             VNManager.Instance.ShowStory(new InkStory(CurrentLevel.StoryIntro));
             _packagesLeft = CurrentLevel.PackageCount;
-            _objectiveText.text = $"Deliver your packages... {_packagesLeft}";
             _timerText.gameObject.SetActive(true);
             ShowTimer();
             _boostJauge.gameObject.SetActive(CurrentLevel.CanUseBoost);
@@ -175,9 +176,8 @@ namespace NsfwDelivery.Manager
         {
             if (_index < _levels.Length - 1)
             {
-                _index++;
                 GameState = GameState.GoToHouse;
-                MapManager.Instance.SetTarget(car, OfficeNode);
+                MapManager.Instance.SetTarget(car, HomeNode);
             }
         }
 

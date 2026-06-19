@@ -1960,7 +1960,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4, y: 10}
+    oldSize: {x: 4, y: 8}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -5662,6 +5662,10 @@ PrefabInstance:
     - target: {fileID: 8046614047994455138, guid: 53036b9641300564e952247c233f0534, type: 3}
       propertyPath: m_Name
       value: Node (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8046614047994455138, guid: 53036b9641300564e952247c233f0534, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10020,7 +10024,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4, y: 10}
+    oldSize: {x: 4, y: 8}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -11239,6 +11243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NsfwDelivery.Manager.ObjectiveManager
   _objectiveText: {fileID: 1455188099}
   _officeNode: {fileID: 852006238}
+  _homeNode: {fileID: 915256780}
   _timerText: {fileID: 466256775}
   _levels:
   - {fileID: 11400000, guid: bc197d33d6e2bff46876a74d8254140a, type: 2}
@@ -13164,7 +13169,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4, y: 10}
+    oldSize: {x: 4, y: 8}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

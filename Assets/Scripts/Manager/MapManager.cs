@@ -89,8 +89,9 @@ namespace NsfwDelivery.Manager
                         if (ObjectiveManager.Instance.GameState == GameState.GoToHouse)
                         {
                             ObjectiveManager.Instance.GameState = GameState.GoToGarage;
+                            SetTarget(car, ObjectiveManager.Instance.OfficeNode);
                         }
-                        if (ObjectiveManager.Instance.GameState == GameState.GoToGarage)
+                        else if (ObjectiveManager.Instance.GameState == GameState.GoToGarage)
                         {
                             ObjectiveManager.Instance.GameState = GameState.DeliverPackage;
                         }
