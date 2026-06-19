@@ -52,7 +52,11 @@ namespace NsfwDelivery.Manager
         {
             set
             {
-                if (value == GameState.DeliverPackage && _gameState == GameState.GoToGarage)
+                if (_gameState == GameState.GoToHouse)
+                {
+                    GoHome();
+                }
+                else if (_gameState == GameState.GoToGarage)
                 {
                     _missionTimer.Start(120f);
                     InitDay();
@@ -60,6 +64,7 @@ namespace NsfwDelivery.Manager
                 _gameState = value;
                 _objectiveText.text = value switch
                 {
+                    GameState.GoToHouse => "Go home",
                     GameState.GoToGarage => "Go to the post office",
                     GameState.DeliverPackage => "Deliver your packages",
                     _ => string.Empty
@@ -72,7 +77,7 @@ namespace NsfwDelivery.Manager
         private void Awake()
         {
             Instance = this;
-            GameState = GameState.GoToGarage;
+            //GameState = GameState.GoToGarage;
             _timerText.gameObject.SetActive(false);
             _boostJauge.gameObject.SetActive(false);
 
@@ -89,9 +94,14 @@ namespace NsfwDelivery.Manager
             VNManager.Instance.ShowStory(new InkStory(_intro));
         }
 
+        private void GoHome()
+        {
+            VNManager.Instance.ShowStory(new InkStory(CurrentLevel.StoryOutro));
+        }
+
         private void InitDay()
         {
-            VNManager.Instance.ShowStory(new InkStory(CurrentLevel.Story));
+            VNManager.Instance.ShowStory(new InkStory(CurrentLevel.StoryIntro));
             _packagesLeft = CurrentLevel.PackageCount;
             _objectiveText.text = $"Deliver your packages... {_packagesLeft}";
             _timerText.gameObject.SetActive(true);
@@ -150,7 +160,7 @@ namespace NsfwDelivery.Manager
         {
             _timerText.gameObject.SetActive(false);
 
-            GoToGarage(car);
+            GoToHome(car);
         }
 
         private void Win(CarController car)
@@ -158,15 +168,15 @@ namespace NsfwDelivery.Manager
             _timerText.gameObject.SetActive(false);
             _goodDeliveries++;
 
-            GoToGarage(car);
+            GoToHome(car);
         }
 
-        private void GoToGarage(CarController car)
+        private void GoToHome(CarController car)
         {
             if (_index < _levels.Length - 1)
             {
                 _index++;
-                GameState = GameState.GoToGarage;
+                GameState = GameState.GoToHouse;
                 MapManager.Instance.SetTarget(car, OfficeNode);
             }
         }
@@ -189,6 +199,7 @@ namespace NsfwDelivery.Manager
     {
         GoToGarage,
         DeliverPackage,
+        GoToHouse,
         FinishDelivery
     }
 }

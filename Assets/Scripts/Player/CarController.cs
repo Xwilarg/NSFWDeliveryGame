@@ -52,7 +52,7 @@ namespace NsfwDelivery.Player
             var vel = transform.up * _forwardSpeed * (ObjectiveManager.Instance.IsUsingBoost ? 3f : 1f);
             _rb.linearVelocity = vel;
             var torqueForce = -_horizontal * _forwardSpeed * Time.fixedDeltaTime * _info.Torque;
-            torqueForce *= _info.TorqueCurve.Evaluate(_forwardSpeed / _info.Speed);
+            torqueForce *= _info.TorqueCurve.Evaluate(Mathf.Abs(_forwardSpeed) / _info.Speed);
             transform.Rotate(0f, 0f, torqueForce);
 
             if (vel.magnitude > 0f)

@@ -86,6 +86,10 @@ namespace NsfwDelivery.Manager
                     if (Vector2.Distance(car.transform.position, _currentPath.First().transform.position) < 1f)
                     {
                         SetRandomTarget(car);
+                        if (ObjectiveManager.Instance.GameState == GameState.GoToHouse)
+                        {
+                            ObjectiveManager.Instance.GameState = GameState.GoToGarage;
+                        }
                         if (ObjectiveManager.Instance.GameState == GameState.GoToGarage)
                         {
                             ObjectiveManager.Instance.GameState = GameState.DeliverPackage;
