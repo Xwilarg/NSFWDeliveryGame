@@ -9,5 +9,6 @@ namespace NsfwDelivery.SO
         public float Acceleration;
         public float Torque;
         public AnimationCurve TorqueCurve;
+        public float GrassSpeedMultiplier;
     }
 }

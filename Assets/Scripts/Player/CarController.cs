@@ -13,6 +13,8 @@ namespace NsfwDelivery.Player
 
         private Rigidbody2D _rb;
 
+        private int _grassCount;
+
         private float _forward;
         private int _horizontal;
 
@@ -59,6 +61,16 @@ namespace NsfwDelivery.Player
             {
                 MapManager.Instance.UpdatePlayerPath(transform.position);
             }
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.CompareTag("Grass")) _grassCount++;
+        }
+
+        private void OnTriggerExit2D(Collider2D collision)
+        {
+            if (collision.CompareTag("Grass")) _grassCount--;
         }
 
         public void OnMove(InputAction.CallbackContext value)
