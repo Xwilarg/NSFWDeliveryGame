@@ -35,7 +35,7 @@ namespace NsfwDelivery.Manager
 
         private void SetRandomTarget(CarController car)
         {
-            var possibleTargets = _allNodes.Where(x => x.IsObjective && x != _target).ToArray();
+            var possibleTargets = _allNodes.Where(x => x.IsObjective && x != _target).Where(x => ObjectiveManager.Instance.CurrentLevel.CanUseBridges || !x.IsBridgeNode).ToArray();
             SetTarget(car, possibleTargets[Random.Range(0, possibleTargets.Length)]);
         }
 
@@ -85,7 +85,6 @@ namespace NsfwDelivery.Manager
                 {
                     if (Vector2.Distance(car.transform.position, _currentPath.First().transform.position) < 1f)
                     {
-                        SetRandomTarget(car);
                         if (ObjectiveManager.Instance.GameState == GameState.GoToHouse)
                         {
                             ObjectiveManager.Instance.GameState = GameState.GoToGarage;
@@ -94,9 +93,11 @@ namespace NsfwDelivery.Manager
                         else if (ObjectiveManager.Instance.GameState == GameState.GoToGarage)
                         {
                             ObjectiveManager.Instance.GameState = GameState.DeliverPackage;
+                            SetRandomTarget(car);
                         }
                         else
                         {
+                            SetRandomTarget(car);
                             ObjectiveManager.Instance.DeliverPackage(car);
                         }
                     }

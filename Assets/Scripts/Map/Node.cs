@@ -13,6 +13,10 @@ namespace NsfwDelivery.Map
         private bool _isObjective;
         public bool IsObjective => _isObjective;
 
+        [SerializeField]
+        public bool _isBridgeNode;
+        public bool IsBridgeNode => _isBridgeNode;
+
         public bool HasNode(Node node)
             => _nextNodes.Contains(node);
 
@@ -29,7 +33,8 @@ namespace NsfwDelivery.Map
                 }
                 else if (GetInstanceID() > n.GetInstanceID())
                 {
-                    Gizmos.color = Color.blue;
+                    if (IsBridgeNode || n.IsBridgeNode) Gizmos.color = Color.gray;
+                    else Gizmos.color = Color.blue;
                 }
                 else continue;
 
