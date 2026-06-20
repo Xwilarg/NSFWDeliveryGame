@@ -8,6 +8,6 @@ namespace NsfwDelivery.SO
         public TextAsset StoryIntro, StoryOutro;
         public int PackageCount;
 
-        public bool CanUseBoost;
+        public bool CanUseBoost, CanUseBridges;
     }
 }

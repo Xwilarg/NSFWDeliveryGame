@@ -108,6 +108,8 @@ namespace NsfwDelivery.Manager
             _timerText.gameObject.SetActive(true);
             ShowTimer();
             _boostJauge.gameObject.SetActive(CurrentLevel.CanUseBoost);
+
+            LevelManager.Instance.ToggleBridges(CurrentLevel.CanUseBridges);
         }
 
         public void DeliverPackage(CarController car)
