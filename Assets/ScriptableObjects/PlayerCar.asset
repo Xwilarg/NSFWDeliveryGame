@@ -49,4 +49,4 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   GrassSpeedMultiplier: 0.75
-  DistanceToReach: 2
+  DistanceToReach: 1.5

@@ -52,7 +52,7 @@ namespace NsfwDelivery.Player
                 return;
             }
 
-            var vel = transform.up * _forwardSpeed * (ObjectiveManager.Instance.IsUsingBoost ? 3f : 1f);
+            var vel = transform.up * _forwardSpeed * (ObjectiveManager.Instance.IsUsingBoost ? 2f : 1f);
             vel *= _grassCount > 0 ? _info.GrassSpeedMultiplier : 1f;
             _rb.linearVelocity = vel;
             var torqueForce = -_horizontal * _forwardSpeed * Time.fixedDeltaTime * _info.Torque;

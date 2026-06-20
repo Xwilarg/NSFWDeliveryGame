@@ -7,6 +7,7 @@ using Sketch.VN.InkleInk;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace NsfwDelivery.Manager
 {
@@ -97,11 +98,13 @@ namespace NsfwDelivery.Manager
 
         private void GoHome()
         {
-            VNManager.Instance.ShowStory(new InkStory(CurrentLevel.StoryOutro));
+            VNManager.Instance.ShowStory(new InkStory(CurrentLevel.StoryOutro), onDone: () => { if (_index == _levels.Length - 1) SceneManager.LoadScene("Menu"); });
         }
 
         private void InitDay()
         {
+            Debug.Log($"Starting day {_index + 1}");
+
             _index++;
             VNManager.Instance.ShowStory(new InkStory(CurrentLevel.StoryIntro));
             _packagesLeft = CurrentLevel.PackageCount;
@@ -176,16 +179,14 @@ namespace NsfwDelivery.Manager
 
         private void GoToHome(CarController car)
         {
-            if (_index < _levels.Length - 1)
-            {
-                GameState = GameState.GoToHouse;
-                MapManager.Instance.SetTarget(car, HomeNode);
-            }
+            GameState = GameState.GoToHouse;
+            MapManager.Instance.SetTarget(car, HomeNode);
         }
 
         public void OnUseBoost(InputAction.CallbackContext value)
         {
-            if (value.phase == InputActionPhase.Started && CurrentLevel.CanUseBoost)
+            if (_index == -1) return;
+            if (value.phase == InputActionPhase.Started && CurrentLevel && CurrentLevel.CanUseBoost)
             {
                 _isPressingBoostKey = true;
             }
