@@ -83,7 +83,7 @@ namespace NsfwDelivery.Manager
                 { }
                 else if (_currentPath.Count == 1)
                 {
-                    if (Vector2.Distance(car.transform.position, _currentPath.First().transform.position) < 1f)
+                    if (Vector2.Distance(car.transform.position, _currentPath.First().transform.position) < car.Info.DistanceToReach)
                     {
                         if (ObjectiveManager.Instance.GameState == GameState.GoToHouse)
                         {

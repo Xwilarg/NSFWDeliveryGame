@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e3d463e0f0578c4eb770cf9dc80dbcc, type: 3}
   m_Name: PlayerCar
   m_EditorClassIdentifier: Assembly-CSharp::NsfwDelivery.SO.CarInfo
-  Speed: 7
+  Speed: 10
   Acceleration: 10
-  Torque: 100
+  Torque: 90
   TorqueCurve:
     serializedVersion: 2
     m_Curve:
@@ -48,3 +48,5 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  GrassSpeedMultiplier: 0.75
+  DistanceToReach: 2

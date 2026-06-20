@@ -10,6 +10,7 @@ namespace NsfwDelivery.Player
     {
         [SerializeField]
         private CarInfo _info;
+        public CarInfo Info => _info;
 
         private Rigidbody2D _rb;
 
@@ -52,6 +53,7 @@ namespace NsfwDelivery.Player
             }
 
             var vel = transform.up * _forwardSpeed * (ObjectiveManager.Instance.IsUsingBoost ? 3f : 1f);
+            vel *= _grassCount > 0 ? _info.GrassSpeedMultiplier : 1f;
             _rb.linearVelocity = vel;
             var torqueForce = -_horizontal * _forwardSpeed * Time.fixedDeltaTime * _info.Torque;
             torqueForce *= _info.TorqueCurve.Evaluate(Mathf.Abs(_forwardSpeed) / _info.Speed);

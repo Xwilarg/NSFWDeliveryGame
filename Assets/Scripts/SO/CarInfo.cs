@@ -10,5 +10,6 @@ namespace NsfwDelivery.SO
         public float Torque;
         public AnimationCurve TorqueCurve;
         public float GrassSpeedMultiplier;
+        public float DistanceToReach;
     }
 }
