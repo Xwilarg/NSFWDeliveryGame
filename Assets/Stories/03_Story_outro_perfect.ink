@@ -15,6 +15,6 @@ The three of them, intertwined, continued sharing this moment until their breath
 And once they reached their apex, Valentine felt on her back, her insides filled, the girl trembling of exhaustion on her side
 I think.. we will take an order #speaker ugirl
 
-You reached the end of this jam game, you'll now be redirected to the main menu #speaker none
+You reached the end of this jam game, you'll now be redirected to the main menu #speaker none #background none
 THANKS FOR PLAYING
 -> END
