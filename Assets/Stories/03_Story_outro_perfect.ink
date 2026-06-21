@@ -5,6 +5,15 @@ Valentine led them in the bedroom and slowly removing her shirt, sat on the bed 
 From what I understand you've looking for couple toys, why don't I let you sample some of the ones we sells? #speaker DeliveryGirl
 As the couple both removed their clothes, Valentine did signed to come closer #speaker none
 The woman sat on the bed as Valentine passed a hand around her back, as the man removed his underwear, revealing his throbbing manhood
+Valentine moved her hand to a toy on her left, her hand reaching a vibrator while raising her leg, inviting the man in front of her
+Carressing the girl, feeling her dampness, she then slided a finger inside her, accompagning the toy between her legs
+While kissing her she then passed the remote control to the man who began to fiddle with the buttons
+Valentine ran her hand on the girl back, following her spine while the vibrations were pulsing inside her
+The man did a few step closer, and while Valentine was kissing the girl, moved his tip to her entrance
+Moving her leg behind his back, she slowly pushed him inside her
+The three of them, intertwined, continued sharing this moment until their breath became hastier, their voices mixing in a melody of pleasure
+And once they reached their apex, Valentine felt on her back, her insides filled, the girl trembling of exhaustion on her side
+I think.. we will take an order #speaker ugirl
 
 You reached the end of this jam game, you'll now be redirected to the main menu #speaker none
 THANKS FOR PLAYING
