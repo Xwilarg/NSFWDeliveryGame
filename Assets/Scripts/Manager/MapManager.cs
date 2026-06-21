@@ -97,8 +97,11 @@ namespace NsfwDelivery.Manager
                         }
                         else
                         {
-                            SetRandomTarget(car);
-                            ObjectiveManager.Instance.DeliverPackage(car);
+                            if (!ObjectiveManager.Instance.DeliverPackage(car))
+                            {
+                                car.DeliverPackage();
+                                SetRandomTarget(car);
+                            }
                         }
                     }
                     else

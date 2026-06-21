@@ -124,14 +124,16 @@ namespace NsfwDelivery.Manager
             LevelManager.Instance.ToggleBridges(CurrentLevel.CanUseBridges);
         }
 
-        public void DeliverPackage(CarController car)
+        public bool DeliverPackage(CarController car)
         {
             _packagesLeft--;
             _objectiveText.text = $"Deliver your packages... {_packagesLeft}";
             if (_packagesLeft == 0)
             {
                 Win(car);
+                return true;
             }
+            return false;
         }
 
         private void ShowTimer()

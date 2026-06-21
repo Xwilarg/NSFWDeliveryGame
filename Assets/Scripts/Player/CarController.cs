@@ -15,6 +15,9 @@ namespace NsfwDelivery.Player
         [SerializeField]
         private Transform _minimapCamera;
 
+        [SerializeField]
+        private Animator _knock;
+
         private Rigidbody2D _rb;
 
         private int _grassCount;
@@ -80,6 +83,12 @@ namespace NsfwDelivery.Player
         private void OnTriggerExit2D(Collider2D collision)
         {
             if (collision.CompareTag("Grass")) _grassCount--;
+        }
+
+        public void DeliverPackage()
+        {
+            _knock.gameObject.SetActive(true);
+            _knock.SetTrigger("Knock");
         }
 
         public void OnMove(InputAction.CallbackContext value)
