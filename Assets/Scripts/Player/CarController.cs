@@ -12,6 +12,9 @@ namespace NsfwDelivery.Player
         private CarInfo _info;
         public CarInfo Info => _info;
 
+        [SerializeField]
+        private Transform _minimapCamera;
+
         private Rigidbody2D _rb;
 
         private int _grassCount;
@@ -68,6 +71,10 @@ namespace NsfwDelivery.Player
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.CompareTag("Grass")) _grassCount++;
+            if (collision.CompareTag("Camera"))
+            {
+                _minimapCamera.position = collision.GetComponent<CameraMarker>().CameraPos;
+            }
         }
 
         private void OnTriggerExit2D(Collider2D collision)

@@ -17,4 +17,4 @@ MonoBehaviour:
   StoryOutroPerfect: {fileID: 4900000, guid: 269f8b416e1dab549abaa9ce1c35f014, type: 3}
   PackageCount: 1
   CanUseBoost: 0
-  CanUseBridges: 0
+  CanUseBridges: 1
