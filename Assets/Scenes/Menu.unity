@@ -176,7 +176,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Skiifae - Art
+  m_text: 'Lydian - Music
+
+    Skiifae - Art
 
     Zirk - Code & Story'
   m_isRightToLeft: 0
