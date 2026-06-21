@@ -6946,11 +6946,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3337708f2402750438337bb5836922db, type: 2}
   _intro: {fileID: 4900000, guid: b9e6125b0f0e507488b909adcb92699d, type: 3}
   _boostJauge: {fileID: 1078211501}
-  _vnDisable:
-  - {fileID: 45713815}
-  - {fileID: 1754258725}
-  _vnEnable:
-  - {fileID: 21907447}
   _goodDeliveries: 0
 --- !u!114 &1766446687
 MonoBehaviour:
