@@ -2,11 +2,11 @@ Valentine barely had time to remove her coat that someone was already ringing at
 There a couple was standing, probably the meeting that Valerie was supposed to have
 Valerie is busy today so I hope you don't mind me taking his place, please come inside #speaker DeliveryGirl
 Valentine led them in the bedroom and slowly removing her shirt, sat on the bed #speaker none #hide character #background girl_sfw
-From what I understand you've looking for couple toys, why don't I let you sample some of the ones we sells? #speaker DeliveryGirl
-As the couple both removed their clothes, Valentine did signed to come closer #speaker none
+From what I understand you've looking for couple toys, why don't I let you sample some of the ones we sell? #speaker DeliveryGirl
+As the couple both removed their clothes, Valentine signed to come closer #speaker none
 The woman sat on the bed as Valentine passed a hand around her back, as the man removed his underwear, revealing his throbbing manhood
 Valentine moved her hand to a toy on her left, her hand reaching a vibrator while raising her leg, inviting the man in front of her
-Carressing the girl, feeling her dampness, she then slided a finger inside her, accompagning the toy between her legs
+Caressing the girl, feeling her dampness, she then slid a finger inside her, accompanying the toy between her legs
 While kissing her she then passed the remote control to the man who began to fiddle with the buttons
 Valentine ran her hand on the girl back, following her spine while the vibrations were pulsing inside her
 The man did a few step closer, and while Valentine was kissing the girl, moved his tip to her entrance
