@@ -100,13 +100,22 @@ namespace NsfwDelivery.Manager
         private void GoHome()
         {
             var onDone = new Action(() => { if (_index == _levels.Length - 1) SceneManager.LoadScene("Menu"); });
+            var onTags = new Func<string, string, bool>((name, desc) =>
+            {
+                if (name == "toggle" && desc == "hide")
+                {
+                    VNManager.Instance.ToggleHide();
+                    return true;
+                }
+                return false;
+            });
             if (_goodDeliveries == _index + 1)
             {
-                VNManager.Instance.ShowStory(new InkStory(CurrentLevel.StoryOutroPerfect), onDone: onDone);
+                VNManager.Instance.ShowStory(new InkStory(CurrentLevel.StoryOutroPerfect), onDone: onDone, onTags: onTags);
             }
             else
             {
-                VNManager.Instance.ShowStory(new InkStory(CurrentLevel.StoryOutroNormal), onDone: onDone);
+                VNManager.Instance.ShowStory(new InkStory(CurrentLevel.StoryOutroNormal), onDone: onDone, onTags: onTags);
             }
         }
 
