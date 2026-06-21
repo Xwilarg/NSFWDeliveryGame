@@ -6404,6 +6404,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 93e74534414d4574b97e05b80cb25f58, type: 2}
   - {fileID: 11400000, guid: 07804c9404abfaa4eb9b0ad4467ed040, type: 2}
   - {fileID: 11400000, guid: 777a539bcb181764e9fc974f27e360f0, type: 2}
+  - {fileID: 11400000, guid: 7730d8a52c8627b4cb9459a9cb1bd2e5, type: 2}
   _characterImage: {fileID: 45713817}
   _overlays: []
   _backgroundImage: {fileID: 1280085630}
