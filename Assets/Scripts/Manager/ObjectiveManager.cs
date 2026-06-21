@@ -4,6 +4,7 @@ using NsfwDelivery.SO;
 using Sketch.Common;
 using Sketch.VN;
 using Sketch.VN.InkleInk;
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -98,7 +99,15 @@ namespace NsfwDelivery.Manager
 
         private void GoHome()
         {
-            VNManager.Instance.ShowStory(new InkStory(CurrentLevel.StoryOutro), onDone: () => { if (_index == _levels.Length - 1) SceneManager.LoadScene("Menu"); });
+            var onDone = new Action(() => { if (_index == _levels.Length - 1) SceneManager.LoadScene("Menu"); });
+            if (_goodDeliveries == _index + 1)
+            {
+                VNManager.Instance.ShowStory(new InkStory(CurrentLevel.StoryOutroPerfect), onDone: onDone);
+            }
+            else
+            {
+                VNManager.Instance.ShowStory(new InkStory(CurrentLevel.StoryOutroNormal), onDone: onDone);
+            }
         }
 
         private void InitDay()

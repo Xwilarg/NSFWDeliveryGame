@@ -6403,6 +6403,7 @@ MonoBehaviour:
   _characters:
   - {fileID: 11400000, guid: 93e74534414d4574b97e05b80cb25f58, type: 2}
   - {fileID: 11400000, guid: 07804c9404abfaa4eb9b0ad4467ed040, type: 2}
+  - {fileID: 11400000, guid: 777a539bcb181764e9fc974f27e360f0, type: 2}
   _characterImage: {fileID: 45713817}
   _overlays: []
   _backgroundImage: {fileID: 1280085630}
@@ -6411,6 +6412,10 @@ MonoBehaviour:
     Image: {fileID: 21300000, guid: 38c05c1415be9f548aaffc1a5c86fbe7, type: 3}
   - Tag: girl
     Image: {fileID: 21300000, guid: 59d7032a56bdeb84bbf1007626b4460c, type: 3}
+  - Tag: boy_sfw
+    Image: {fileID: 21300000, guid: a068abe1cbfda624c92c618852e18663, type: 3}
+  - Tag: girl_sfw
+    Image: {fileID: 21300000, guid: d59be43ad479d474aba0296bb8b2caf2, type: 3}
   _container: {fileID: 21907447}
   _namePanel: {fileID: 565858961}
   _nameText: {fileID: 1656733225}

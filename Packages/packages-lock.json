@@ -330,7 +330,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "c7a5658783f327ce8dc98620979556cd572a332c"
+      "hash": "2f63d210893bb90c05c07101cdfc03ec78c901f2"
     },
     "eu.zirk.sketch.visualnovel.inkleink": {
       "version": "https://github.com/Xwilarg/Sketch.git?path=/eu.zirk.sketch.visualnovel.inkleink",

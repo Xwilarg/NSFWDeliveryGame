@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: 00
   m_EditorClassIdentifier: Assembly-CSharp::NsfwDelivery.SO.LevelInfo
   StoryIntro: {fileID: 4900000, guid: de2cf32a90c0d81458c6e689a6accfbc, type: 3}
-  StoryOutro: {fileID: 4900000, guid: 269f8b416e1dab549abaa9ce1c35f014, type: 3}
+  StoryOutroNormal: {fileID: 4900000, guid: 269f8b416e1dab549abaa9ce1c35f014, type: 3}
+  StoryOutroPerfect: {fileID: 4900000, guid: 269f8b416e1dab549abaa9ce1c35f014, type: 3}
   PackageCount: 1
   CanUseBoost: 0
+  CanUseBridges: 0
