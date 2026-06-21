@@ -1,6 +1,6 @@
 As Valerie comes closer to her house, she hears a faint moan coming from inside #speaker none #hide character
 She takes a few steps toward the door and slightly opens it
-There, lying on the floor, Valentine is busy marketing one of the toys #background boy
+There, lying on the floor, Valentine is busy marketing one of the toys #background boy #toggle hide
 A girl on top of him is firmly holding a leash, speaking with a firm tone
 You didn't lie, your collars are indeed the best quality I've gotten my hands on #speaker ugirl
 As the girl says that, she yanks on the leash, pulling Valentine's head upward #speaker none

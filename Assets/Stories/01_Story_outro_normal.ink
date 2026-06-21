@@ -1,6 +1,6 @@
 As Valerie comes close to her house, she hears a faint voice coming from inside #speaker none #hide character
 She takes a few steps toward the door and slightly opens it
-There, lying on the floor, Valentine is busy marketing one of the toys #background boy_sfw
+There, lying on the floor, Valentine is busy marketing one of the toys #background boy_sfw #toggle hide
 A girl is on top of him, firmly holding a leash while speaking with a firm tone
 See Val, I love your toys nearly as much as I love spending time with you, that's not the problem #speaker ugirl
 As she says these words, she pulls on the rope, making his body jolt forward #speaker none

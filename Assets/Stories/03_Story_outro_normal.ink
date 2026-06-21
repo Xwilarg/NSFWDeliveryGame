@@ -1,7 +1,7 @@
 Valerie barely had time to remove her coat that someone was already ringing at the door #speaker none
 There a couple was standing, probably the meeting that Valentine was supposed to have
 Valentine is busy today so I hope you don't mind me taking his place, please come inside #speaker DeliveryGirl
-Valerie led them in the bedroom and slowly removing her shirt, sat on the bed #speaker none #hide character #background girl_sfw
+Valerie led them in the bedroom and slowly removing her shirt, sat on the bed #speaker none #hide character #background girl_sfw #toggle hide
 From what I understand you've looking for couple toys, why don't I let you sample some of the ones we sell? #speaker DeliveryGirl
 As the couple both removed their clothes, Valerie signed them to come closer #speaker none
 The woman sat on the bed as Valerie passed a hand around her back, but as her hand reached a vibrator, she noticed uncertainty in the eyes of the girl

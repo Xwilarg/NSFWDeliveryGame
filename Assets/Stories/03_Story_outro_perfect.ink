@@ -1,7 +1,7 @@
 Valerie barely has time to remove her coat before someone starts ringing the doorbell #speaker none
 There's a couple standing there, probably the meeting that Valentine was supposed to have
 Valentine is busy today so I hope you don't mind me taking his place, please come inside #speaker DeliveryGirl
-Valerie leads them into the bedroom and slowly removes her shirt, sitting on the bed #speaker none #hide character #background girl
+Valerie leads them into the bedroom and slowly removes her shirt, sitting on the bed #speaker none #hide character #background girl #toggle hide
 From what I understand you're looking for couples toys, why don't I let you sample some of the ones we sell? #speaker DeliveryGirl
 As the couple both remove their clothes, Valerie signals them to come closer #speaker none
 The woman settles on the bed as Valerie passes a hand around her back, while the man removes his underwear, revealing his throbbing manhood
