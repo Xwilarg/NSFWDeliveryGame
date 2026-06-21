@@ -15,6 +15,6 @@ MonoBehaviour:
   StoryIntro: {fileID: 4900000, guid: 0044193f263fad04782a4f3a38ec3129, type: 3}
   StoryOutroNormal: {fileID: 4900000, guid: 264c373f3222fff4584876e8376a25af, type: 3}
   StoryOutroPerfect: {fileID: 4900000, guid: 00db3f53421145c4ea48398c181feb21, type: 3}
-  PackageCount: 10
+  PackageCount: 15
   CanUseBoost: 1
   CanUseBridges: 0
