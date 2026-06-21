@@ -45,8 +45,8 @@ namespace NsfwDelivery.Player
             else if (_forward < 0f) _forwardSpeed = Mathf.Clamp(_forwardSpeed - acceleration, -_info.Speed, _forwardSpeed);
             else
             {
-                if (_forwardSpeed > 0f) _forwardSpeed = Mathf.Clamp(_forwardSpeed - Time.deltaTime, 0f, _forwardSpeed);
-                else if (_forwardSpeed < 0f) _forwardSpeed = Mathf.Clamp(_forwardSpeed + Time.deltaTime, _forwardSpeed, 0f);
+                if (_forwardSpeed > 0f) _forwardSpeed = Mathf.Clamp(_forwardSpeed - acceleration, 0f, _forwardSpeed);
+                else if (_forwardSpeed < 0f) _forwardSpeed = Mathf.Clamp(_forwardSpeed + acceleration, _forwardSpeed, 0f);
             }
         }
 
